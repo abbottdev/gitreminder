@@ -1,0 +1,12 @@
+﻿<Window x:Class="Git.Reminder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rx="clr-namespace:ReactiveUI;assembly=ReactiveUI"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid> 
+        <StackPanel> 
+            <TextBlock Text="Status"></TextBlock>
+            <rx:RoutedViewHost Router="{Binding Router}"></rx:RoutedViewHost> 
+        </StackPanel>
+    </Grid>
+</Window>

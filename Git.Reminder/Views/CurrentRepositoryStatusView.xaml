@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Git.Reminder.Views.CurrentRepositoryStatusView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:Git.Reminder.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="theView"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White"></Setter>
+        </Style>
+    </UserControl.Style>
+    <Grid d:DataContext="{d:DesignData Type=vm:CurrentRepositoryStatusViewModel, IsDesignTimeCreatable=True}">
+        <StackPanel>
+        <StackPanel DataContext="{Binding ActiveRepository}">
+            <TextBlock Text="{Binding ProjectName}" FontSize="18" FontWeight="Bold"></TextBlock>
+        </StackPanel>
+        <StackPanel DataContext="{Binding Modifications}">
+            <TextBlock FontSize="14">Files</TextBlock>
+            <TextBlock FontSize="10">Modified</TextBlock>
+            <TextBlock FontSize="12" Text="{Binding Files.Modified}"></TextBlock>
+            <TextBlock FontSize="10">Added</TextBlock>
+            <TextBlock FontSize="12" Text="{Binding Files.Added}"></TextBlock>
+
+            <TextBlock FontSize="10">Removed</TextBlock>
+            <TextBlock FontSize="12" Text="{Binding Files.Removed}"></TextBlock>
+
+            <TextBlock FontSize="14">Lines</TextBlock>
+
+            <TextBlock FontSize="10">Added</TextBlock>
+            <TextBlock FontSize="12" Text="{Binding LinesAdded}"></TextBlock>
+
+            <TextBlock FontSize="10">Removed</TextBlock>
+            <TextBlock FontSize="12" Text="{Binding LinesRemoved}"></TextBlock>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
